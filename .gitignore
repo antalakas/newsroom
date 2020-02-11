@@ -130,3 +130,5 @@ dmypy.json
 
 news/
 ingested_news/
+.vscode/
+newsroom_2020/
