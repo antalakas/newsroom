@@ -15,6 +15,7 @@ click = "^7.0"
 requests = "^2.22.0"
 flake8 = "^3.7.9"
 tiledb = "^0.5.6"
+tiledb-cloud = "^0.5.5"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.3.5"
@@ -34,6 +35,8 @@ wikipedia = "newsroom.pilot:main"
 ingestion = "newsroom.ingest_news:main"
 medium_map = "newsroom.medium_map_generator:main"
 create_array = "newsroom.create_array:main"
+write_array = "newsroom.write_array:main"
+read_array = "newsroom.read_array:main"
 
 [tool.coverage.paths]
 source = ["src", "*/site-packages"]

@@ -1,5 +1,4 @@
 # src/newsroom/create_array.py
-import datetime
 import sys
 
 import click
@@ -48,16 +47,12 @@ def main(year, dim_medium, dim_article, tile_extent):
     """
     Generates a TileDB array to host news
     """
-    first_day = year + "-01-01"
-    last_day = year + "-12-31"
-
-    # Create date objects in given time format yyyy-mm-dd
-    first_date = datetime.datetime.strptime(first_day, "%Y-%m-%d")
-    last_date = datetime.datetime.strptime(last_day, "%Y-%m-%d")
+    first_day = year + "-01-01 00:00:00"
+    last_day = year + "-12-31 23:59:59"
 
     # Calculate timestamps for dim_time dimension limits
-    first_timestamp = int(datetime.datetime.timestamp(first_date))
-    last_timestamp = int(datetime.datetime.timestamp(last_date))
+    first_timestamp = storage.get_timestamp_from_text(first_day)
+    last_timestamp = storage.get_timestamp_from_text(last_day)
 
     # Name of array
     array_name = "newsroom_" + year
